@@ -29,7 +29,7 @@ function init () {
          this.count = 0;
          if (this.nextHand) this.nextHand.moveMe();
       }
-      this.hand.style.transform = `rotate(${this.count}deg)`;
+      this.hand.style.transform = `rotate(${this.count + 90}deg)`;
    }
 
    window.clock = setInterval(() => {

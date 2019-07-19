@@ -28,7 +28,6 @@ body {
       inset 0 0 0 3px #EFEFEF,
       inset 0 0 10px black,
       0 0 10px rgba(0, 0, 0, 0.2);
-   transform: rotate(90deg);
 }
 
 .clock-face {
@@ -46,14 +45,23 @@ body {
    position: absolute;
    top: 50%;
    transform-origin: right;
+   transform: rotate(90deg);
+   transition: all 0.05s;
+   transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);
 }
 
 .second-hand {
-   background: red;
+   background-color: red;
    height: 3px;
 }
 
 .hour-hand {
-   width: 35%;
-   transform: translate(45px, 0);
+   background: none;
+
+   display: flex;
+   justify-content: flex-end;
+}
+.hour-hand-visual {
+   width: 70%;
+   background-color: black;
 }
