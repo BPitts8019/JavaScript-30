@@ -2,6 +2,7 @@ function init () {
    const hourHand = {
       name: "Hour Hand",
       count: 0,
+      moveAmount: 30,
       hand: document.querySelector(".hour-hand"),
       nextHand: null,
       moveMe: moveHand
@@ -9,6 +10,7 @@ function init () {
    const minuteHand = {
       name: "Minute Hand",
       count: 0,
+      moveAmount: 6,
       hand: document.querySelector(".min-hand"),
       nextHand: hourHand,
       moveMe: moveHand
@@ -16,15 +18,16 @@ function init () {
    const secondHand = {
       name: "Second Hand",
       count: 0,
+      moveAmount: 6,
       hand: document.querySelector(".second-hand"),
       nextHand: minuteHand,
       moveMe: moveHand
    };
 
-   function moveHand () {
+   function moveHand (moveAmount) {
       console.log(`${this.name} count: ${this.count}.`);
       
-      this.count += 6;
+      this.count += this.moveAmount;
       if (this.count >= 360) {
          this.count = 0;
          if (this.nextHand) this.nextHand.moveMe();
@@ -32,6 +35,7 @@ function init () {
       this.hand.style.transform = `rotate(${this.count + 90}deg)`;
    }
 
+   window.hourHand = hourHand;
    window.clock = setInterval(() => {
       secondHand.moveMe();
    }, 1000);
